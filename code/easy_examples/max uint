@@ -21,18 +21,17 @@ package main
 import "fmt"
 
 func main() {
-    var n, amount uint16
-    var max uint16 = 0
-    fmt.Scan(&n)
-    for n != 0 {
-        if n > max {
-            max = n
+    var n, amount, max uint16
+    for fmt.Scan(&n); n != 0; fmt.Scan(&n) {
+        if n < max {
+        continue
+        }else if n > max {
             amount = 0
+            max = n
             amount++
         }else if n == max {
             amount++
         }
-        fmt.Scan(&n)
     }
    fmt.Println(amount)
 }
